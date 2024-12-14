@@ -1,3 +1,5 @@
+import { DateFormatMasks } from "dateformat";
+
 export type Token = ( payload: TokenPayload ) => string | number;
 
 export interface TokenPayload {
@@ -23,7 +25,7 @@ declare global {
 }
 
 declare function consoleStamp(console: Console, options?: {
-    format?: string
+    format?: `:date(${keyof DateFormatMasks})`
     tokens?: Record<string, Token>
     include?: string[]
     level?: string
